@@ -9,7 +9,6 @@ import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 
-
 SEMVER_TAG = re.compile(r"^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$")
 
 
