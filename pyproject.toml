@@ -1,0 +1,36 @@
+[project]
+name = "container-image-hash"
+dynamic = ["version"]
+description = "Hash a Docker build context and derive a reproducible image tag"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+container-image-hash = "container_image_hash.core:main"
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "ty",
+]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+raw-options = { version_scheme = "post-release" }
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/container_image_hash/_version.py"
+
+[[tool.uv.index]]
+name = "repo.noa.re"
+url = "https://repo.noa.re"
+publish-url = "https://repo.noa.re/"
+
+[tool.ruff]
+exclude = ["src/container_image_hash/_version.py"]
